@@ -99,28 +99,21 @@ const COLLECTION_PRODUCTS = {
 ============================================= */
 function buildProductCard(p, index = 0) {
   const img1 = p.images ? p.images[0] : p.img1;
+  const waText = encodeURIComponent(`Hello, I want to buy the ${p.name}`);
+  const waLink = `https://wa.me/233203213512?text=${waText}`;
   return `
-    <div class="product-card" data-id="${p.id}"
-         data-img1="${img1}"
-         data-img2="${p.images ? p.images[1] : p.img2}"
-         data-name="${p.name}" data-material="${p.material}"
-         data-price="${p.price}" data-badge="${p.badge || ''}"
-         data-desc="${p.desc}" data-category="${p.category || ''}"
-         data-meta='${JSON.stringify(p.meta)}'
-         style="animation-delay:${index * 0.07}s">
+    <div class="product-card" style="animation-delay:${index * 0.07}s">
       <div class="pc-img">
         <img src="${img1}" alt="${p.name}" loading="lazy" />
         ${p.badge ? `<span class="pc-badge">${p.badge}</span>` : ''}
-        <button class="pc-wish" aria-label="Wishlist">♡</button>
       </div>
       <div class="pc-body">
         <p class="pc-name">${p.name}</p>
         <p class="pc-mat">${p.material}</p>
         <div class="pc-footer">
           <span class="pc-price">${fmt(p.price)}</span>
-          <button class="pc-add" aria-label="Add to cart" data-id="${p.id}" title="Add to cart">+</button>
         </div>
-        <button class="pc-buy" data-id="${p.id}">Buy Now</button>
+        <a href="${waLink}" class="pc-buy" target="_blank" rel="noopener">Buy Now</a>
       </div>
     </div>`;
 }
@@ -156,7 +149,6 @@ if (circleItemsHome.length && productsRevealHome) {
       productsGridHome.innerHTML = prods.map((p, i) => buildProductCard(p, i)).join('');
       productsRevealHome.classList.add('visible');
       setTimeout(() => productsRevealHome.scrollIntoView({ behavior:'smooth', block:'start' }), 100);
-      wireCardClicks(productsGridHome);
       wireAddButtons(productsGridHome);
       wireBuyButtons(productsGridHome);
     });
@@ -201,7 +193,6 @@ function renderShopProducts(products, title) {
   shopGrid.innerHTML = products.map((p, i) => buildProductCard(p, i)).join('');
   shopReveal.classList.add('visible');
   setTimeout(() => shopReveal.scrollIntoView({ behavior:'smooth', block:'start' }), 100);
-  wireCardClicks(shopGrid, true);   // true = use DOM data attrs
   wireAddButtons(shopGrid, true);
   wireBuyButtons(shopGrid, true);
 }
@@ -249,244 +240,3 @@ if (shopCircleItems.length && shopReveal) {
     activeShopCollection = null;
   });
 }
-
-/* =============================================
-   PRODUCT MODAL
-============================================= */
-const modalOverlay  = document.getElementById('modalOverlay');
-const modalClose    = document.getElementById('modalClose');
-const modalImg      = document.getElementById('modalImg');
-const modalThumbs   = document.getElementById('modalThumbs');
-const modalTitle    = document.getElementById('modalTitle');
-const modalCategory = document.getElementById('modalCategory');
-const modalPrice    = document.getElementById('modalPrice');
-const modalDesc     = document.getElementById('modalDesc');
-const modalMeta     = document.getElementById('modalMeta');
-const qtyMinus      = document.getElementById('qtyMinus');
-const qtyPlus       = document.getElementById('qtyPlus');
-const qtyVal        = document.getElementById('qtyVal');
-const modalAddCart  = document.getElementById('modalAddCart');
-
-let currentProduct = null;
-let qty = 1;
-
-/* Build a normalised product object from either source */
-function normaliseProduct(raw) {
-  return {
-    id:       raw.id,
-    name:     raw.name     || raw['data-name']     || '',
-    material: raw.material || raw['data-material'] || '',
-    price:    raw.price    || raw['data-price']    || 0,
-    badge:    raw.badge    || raw['data-badge']    || null,
-    desc:     raw.desc     || raw['data-desc']     || '',
-    category: raw.category || raw['data-category'] || '',
-    images:   raw.images   || [raw.img1 || raw['data-img1'], raw.img2 || raw['data-img2']],
-    meta:     raw.meta     || {},
-  };
-}
-
-function openModal(product) {
-  if (!modalOverlay) return;
-  currentProduct = normaliseProduct(product);
-  qty = 1;
-  if (qtyVal) qtyVal.textContent = '1';
-
-  const imgs = currentProduct.images.filter(Boolean);
-  modalTitle.textContent    = currentProduct.name;
-  modalCategory.textContent = (currentProduct.category || '').charAt(0).toUpperCase() + (currentProduct.category || '').slice(1);
-  modalPrice.textContent    = fmt(currentProduct.price);
-  modalDesc.textContent     = currentProduct.desc;
-  modalImg.src              = imgs[0] || '';
-  modalImg.alt              = currentProduct.name;
-
-  modalThumbs.innerHTML = imgs.map((src, i) => `
-    <div class="modal-thumb ${i === 0 ? 'active' : ''}" data-src="${src}">
-      <img src="${src}" alt="View ${i + 1}" loading="lazy" />
-    </div>`).join('');
-  modalThumbs.querySelectorAll('.modal-thumb').forEach(t => {
-    t.addEventListener('click', () => {
-      modalThumbs.querySelectorAll('.modal-thumb').forEach(x => x.classList.remove('active'));
-      t.classList.add('active');
-      modalImg.src = t.dataset.src;
-    });
-  });
-
-  modalMeta.innerHTML = Object.entries(currentProduct.meta || {}).map(([k, v]) => `
-    <div class="modal-meta-item">
-      <span class="meta-label">${k}</span>
-      <span class="meta-val">${v}</span>
-    </div>`).join('');
-
-  modalOverlay.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  if (!modalOverlay) return;
-  modalOverlay.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-if (modalClose)   modalClose.addEventListener('click', closeModal);
-if (modalOverlay) modalOverlay.addEventListener('click', e => { if (e.target === modalOverlay) closeModal(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-if (qtyMinus) qtyMinus.addEventListener('click', () => { if (qty > 1) { qty--; qtyVal.textContent = qty; } });
-if (qtyPlus)  qtyPlus.addEventListener('click',  () => { qty++; qtyVal.textContent = qty; });
-if (modalAddCart) {
-  modalAddCart.addEventListener('click', () => {
-    if (currentProduct) { addToCart(currentProduct, qty); closeModal(); }
-  });
-}
-
-/* ── Card click → open modal ── */
-/* fromDOM=true means product data comes from card's data-* attrs */
-function wireCardClicks(container, fromDOM = false) {
-  container.querySelectorAll('.product-card').forEach(card => {
-    card.addEventListener('click', e => {
-      if (e.target.closest('.pc-add') || e.target.closest('.pc-wish') || e.target.closest('.pc-buy')) return;
-      const product = fromDOM ? readCardData(card) : PRODUCTS.find(p => p.id === parseInt(card.dataset.id));
-      if (product) openModal(product);
-    });
-  });
-}
-
-/* Read product object directly from a card's data-* attributes */
-function readCardData(card) {
-  let meta = {};
-  try { meta = JSON.parse(card.dataset.meta || '{}'); } catch(e) {}
-  return {
-    id:       card.dataset.id,
-    name:     card.dataset.name,
-    material: card.dataset.material,
-    price:    card.dataset.price,
-    badge:    card.dataset.badge || null,
-    desc:     card.dataset.desc,
-    category: card.dataset.category,
-    images:   [card.dataset.img1, card.dataset.img2].filter(Boolean),
-    meta,
-  };
-}
-
-/* =============================================
-   CART
-============================================= */
-let cart = [];
-
-const cartToggle   = document.getElementById('cartToggle');
-const cartDrawer   = document.getElementById('cartDrawer');
-const cartBackdrop = document.getElementById('cartBackdrop');
-const closeCart    = document.getElementById('closeCart');
-const cartItems    = document.getElementById('cartItems');
-const cartFooter   = document.getElementById('cartFooter');
-const cartCount    = document.getElementById('cartCount');
-const cartTotalEl  = document.getElementById('cartTotal');
-
-function openCartDrawer() {
-  if (!cartDrawer) return;
-  cartDrawer.classList.add('open');
-  cartBackdrop && cartBackdrop.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeCartDrawer() {
-  if (!cartDrawer) return;
-  cartDrawer.classList.remove('open');
-  cartBackdrop && cartBackdrop.classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-cartToggle   && cartToggle.addEventListener('click',   openCartDrawer);
-closeCart    && closeCart.addEventListener('click',    closeCartDrawer);
-cartBackdrop && cartBackdrop.addEventListener('click', closeCartDrawer);
-
-function addToCart(product, amount = 1) {
-  const p = normaliseProduct(product);
-  const existing = cart.find(i => String(i.id) === String(p.id));
-  if (existing) { existing.qty += amount; }
-  else { cart.push({ ...p, qty: amount }); }
-  updateCartUI();
-  showToast('Added to cart ✦');
-}
-
-function removeFromCart(id) {
-  cart = cart.filter(i => String(i.id) !== String(id));
-  updateCartUI();
-}
-
-function updateCartUI() {
-  if (!cartItems) return;
-  const total = cart.reduce((s, i) => s + Number(i.price) * i.qty, 0);
-  const count = cart.reduce((s, i) => s + i.qty, 0);
-  if (cartCount) {
-    cartCount.textContent = count;
-    cartCount.classList.toggle('visible', count > 0);
-  }
-  if (!cart.length) {
-    cartItems.innerHTML = '<p class="cart-empty">Your cart is empty.</p>';
-    cartFooter && (cartFooter.style.display = 'none');
-    return;
-  }
-  cartItems.innerHTML = cart.map(item => {
-    const thumb = item.images ? item.images[0] : (item.img1 || '');
-    return `
-      <div class="cart-item">
-        <div class="cart-item-img"><img src="${thumb}" alt="${item.name}" /></div>
-        <div class="cart-item-info">
-          <p class="cart-item-name">${item.name}</p>
-          <p class="cart-item-price">${fmt(item.price)}</p>
-          <p class="cart-item-qty">Qty: ${item.qty}</p>
-        </div>
-        <button class="cart-remove" data-id="${item.id}" aria-label="Remove">✕</button>
-      </div>`;
-  }).join('');
-  cartItems.querySelectorAll('.cart-remove').forEach(btn => {
-    btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
-  });
-  if (cartTotalEl) cartTotalEl.textContent = fmt(total);
-  cartFooter && (cartFooter.style.display = 'block');
-}
-
-function wireAddButtons(container, fromDOM = false) {
-  container.querySelectorAll('.pc-add').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const card    = btn.closest('.product-card');
-      const product = fromDOM ? readCardData(card) : PRODUCTS.find(p => p.id === parseInt(btn.dataset.id));
-      if (product) addToCart(product, 1);
-    });
-  });
-}
-
-function wireBuyButtons(container, fromDOM = false) {
-  container.querySelectorAll('.pc-buy').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.stopPropagation();
-      const card    = btn.closest('.product-card');
-      const product = fromDOM ? readCardData(card) : PRODUCTS.find(p => p.id === parseInt(btn.dataset.id));
-      if (product) { addToCart(product, 1); openCartDrawer(); }
-    });
-  });
-}
-
-/* =============================================
-   TOAST
-============================================= */
-const toastEl = document.getElementById('toast');
-function showToast(msg = 'Added to cart ✦') {
-  if (!toastEl) return;
-  toastEl.textContent = msg;
-  toastEl.classList.add('show');
-  setTimeout(() => toastEl.classList.remove('show'), 2500);
-}
-
-/* =============================================
-   WISHLIST HEARTS
-============================================= */
-document.addEventListener('click', e => {
-  if (e.target.closest('.pc-wish')) {
-    const btn = e.target.closest('.pc-wish');
-    const isWished = btn.textContent.trim() === '♥';
-    btn.textContent = isWished ? '♡' : '♥';
-    btn.style.color = isWished ? '' : 'var(--gold)';
-    showToast(isWished ? 'Removed from wishlist' : 'Added to wishlist ✦');
-  }
-});

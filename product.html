@@ -28,26 +28,22 @@
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
-      <div class="nav-actions">
-        <button class="icon-btn cart-btn" aria-label="Cart" id="cartToggle">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 0 1-8 0"/>
-          </svg>
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
     </div>
   </nav>
 
   <!-- ===== BANNER ===== -->
   <div class="shop-banner">
     <div class="shop-banner-inner">
-      <p class="section-eyebrow">The Full Range</p>
+      <div class="banner-eyebrow-row">
+        <a href="index.html" class="banner-back-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back
+        </a>
+        <p class="section-eyebrow">The Full Range</p>
+        <span class="banner-eyebrow-spacer"></span>
+      </div>
       <h1 class="shop-banner-title">Collections</h1>
       <p class="shop-banner-sub">Discover every treasure — from timeless classics to contemporary statements.</p>
     </div>
@@ -167,57 +163,7 @@
 
   </section>
 
-  <!-- ===== PRODUCT MODAL ===== -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal-box" id="modalBox">
-      <button class="modal-close" id="modalClose">✕</button>
-      <div class="modal-inner">
-        <div class="modal-img-col">
-          <div class="modal-img-main">
-            <img id="modalImg" src="" alt="" />
-          </div>
-          <div class="modal-thumbs" id="modalThumbs"></div>
-        </div>
-        <div class="modal-info-col">
-          <p class="modal-category" id="modalCategory"></p>
-          <h2 class="modal-title" id="modalTitle"></h2>
-          <div class="modal-stars">★★★★★ <span>(12 reviews)</span></div>
-          <p class="modal-price" id="modalPrice"></p>
-          <p class="modal-desc" id="modalDesc"></p>
-          <div class="modal-meta" id="modalMeta"></div>
-          <div class="modal-actions">
-            <div class="qty-wrap">
-              <button class="qty-btn" id="qtyMinus">−</button>
-              <span class="qty-val" id="qtyVal">1</span>
-              <button class="qty-btn" id="qtyPlus">+</button>
-            </div>
-            <button class="btn-primary modal-add-btn" id="modalAddCart">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ===== CART DRAWER ===== -->
-  <div class="cart-backdrop" id="cartBackdrop"></div>
-  <aside class="cart-drawer" id="cartDrawer">
-    <div class="cart-head">
-      <h3>Your Cart</h3>
-      <button id="closeCart">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <p class="cart-empty">Your cart is empty.</p>
-    </div>
-    <div class="cart-footer" id="cartFooter" style="display:none;">
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cartTotal">GH₵ 0</span>
-      </div>
-      <button class="btn-primary" style="width:100%;justify-content:center;">Checkout</button>
-    </div>
-  </aside>
-
-  <div class="toast" id="toast">Added to cart ✦</div>
   <script src="script.js"></script>
 </body>
 </html>

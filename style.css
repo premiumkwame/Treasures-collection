@@ -708,7 +708,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    WHY US — Statement Section
 ============================================= */
 .why-section {
-  padding: 110px 24px 100px;
+  padding: 80px 10px 80px;
+  margin-top: -50px;
+  margin-bottom: -50px;
   background: linear-gradient(160deg, #0b0f13 0%, var(--navy) 60%, #111820 100%);
   position: relative;
   overflow: hidden;
@@ -748,7 +750,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .why-headline {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-size: clamp(1rem, 3vw, 2rem);
   color: var(--champagne);
   font-weight: 400;
   line-height: 1.25;
@@ -760,6 +762,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-style: italic;
   color: var(--gold);
   font-weight: 300;
+  font-size: 2rem;
 }
 .why-body {
   font-family: var(--font-serif);
