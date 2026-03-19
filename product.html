@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collections – Treasures Collection</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="productstyle.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="shop-page">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <a href="index.html" style="display:flex;align-items:center;gap:10px;">
+          <span class="logo-icon">✦</span>
+          <span class="logo-text">Treasures Collection</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="product.html" class="active-link">Collections</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn cart-btn" aria-label="Cart" id="cartToggle">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== BANNER ===== -->
+  <div class="shop-banner">
+    <div class="shop-banner-inner">
+      <p class="section-eyebrow">The Full Range</p>
+      <h1 class="shop-banner-title">Collections</h1>
+      <p class="shop-banner-sub">Discover every treasure — from timeless classics to contemporary statements.</p>
+    </div>
+  </div>
+
+  <!-- ===== COLLECTIONS ===== -->
+  <section class="collections-section" id="collections">
+
+    <!-- "View All" button -->
+    <div class="collections-top-bar">
+      <button class="shop-view-all-btn" id="showAllBtn">View All ✦</button>
+    </div>
+
+    <!-- Category circle containers — product data stored in data-products -->
+    <div class="collection-circles">
+
+      <!-- EARPIECES -->
+      <div class="circle-item" data-collection="earpieces"
+        data-products='[
+          {"id":1,"name":"Celestial Drop Earrings","material":"18K Gold · Pearl","price":380,"badge":"Bestseller","desc":"Elegant drop earrings featuring cultured freshwater pearls suspended in 18-karat gold frames.","img1":"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80","img2":"https://images.unsplash.com/photo-1630734368315-31b742f5d0e6?w=600&q=80","meta":{"Material":"18K Gold","Stone":"Freshwater Pearl","Finish":"High Polish","Weight":"4.2g"}},
+          {"id":2,"name":"Aurora Hoop Earrings","material":"14K Gold · Diamond","price":620,"badge":"New","desc":"Delicate diamond-encrusted hoops that catch the light with every movement.","img1":"https://images.unsplash.com/photo-1599459183200-59c7687a0c70?w=600&q=80","img2":"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80","meta":{"Material":"14K Gold","Stone":"VS1 Diamonds","Finish":"Satin","Weight":"3.8g"}},
+          {"id":3,"name":"Lotus Stud Earrings","material":"22K Gold","price":245,"badge":null,"desc":"Inspired by the lotus flower, these intricate studs are hand-engraved to perfection.","img1":"https://images.unsplash.com/photo-1630734368315-31b742f5d0e6?w=600&q=80","img2":"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80","meta":{"Material":"22K Gold","Stone":"None","Finish":"Engraved","Weight":"2.6g"}},
+          {"id":4,"name":"Sapphire Teardrop Studs","material":"18K White Gold · Sapphire","price":890,"badge":null,"desc":"Deep blue sapphires set in cool white gold. Timeless elegance.","img1":"https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80","img2":"https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80","meta":{"Material":"18K White Gold","Stone":"Blue Sapphire","Finish":"Rhodium Plated","Weight":"3.1g"}},
+          {"id":5,"name":"Tassel Chandelier Earrings","material":"18K Gold","price":460,"badge":"Limited","desc":"Statement tassel earrings with cascading gold chains for extraordinary evenings.","img1":"https://images.unsplash.com/photo-1599459183200-59c7687a0c70?w=600&q=80","img2":"https://images.unsplash.com/photo-1630734368315-31b742f5d0e6?w=600&q=80","meta":{"Material":"18K Gold","Stone":"None","Finish":"Matte & Polish","Weight":"6.5g"}}
+        ]'>
+        <div class="circle-ring">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&q=80" alt="Earpieces" />
+            <div class="circle-overlay"><span>View All</span></div>
+          </div>
+        </div>
+        <p class="circle-label">Earpieces</p>
+      </div>
+
+      <!-- NECKPIECES -->
+      <div class="circle-item" data-collection="neckpieces"
+        data-products='[
+          {"id":6,"name":"Golden Heirloom Necklace","material":"18K Gold · VVS Diamond","price":2200,"badge":"Signature","desc":"Our most iconic piece. Hand-set VVS diamonds along an 18-karat gold link chain.","img1":"https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80","img2":"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80","meta":{"Material":"18K Gold","Stone":"VVS Diamonds","Length":"45cm","Weight":"14.8g"}},
+          {"id":7,"name":"Pearl Strand Necklace","material":"18K Gold · South Sea Pearl","price":1350,"badge":"Bestseller","desc":"Lustrous South Sea pearls hand-knotted on silk with an 18-karat gold clasp.","img1":"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80","img2":"https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80","meta":{"Material":"18K Gold","Stone":"South Sea Pearl","Length":"50cm","Weight":"32g"}},
+          {"id":8,"name":"Emerald Pendant Necklace","material":"18K Gold · Colombian Emerald","price":3400,"badge":"New","desc":"A breathtaking Colombian emerald suspended from a fine 18-karat gold chain.","img1":"https://images.unsplash.com/photo-1574271143515-5cddf8da19be?w=600&q=80","img2":"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80","meta":{"Material":"18K Gold","Stone":"Colombian Emerald","Length":"42cm","Weight":"6.2g"}},
+          {"id":9,"name":"Herringbone Chain Necklace","material":"14K Gold","price":780,"badge":null,"desc":"A sleek, flat herringbone chain that sits perfectly against the neckline.","img1":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","img2":"https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80","meta":{"Material":"14K Gold","Stone":"None","Length":"45cm","Weight":"9.1g"}},
+          {"id":10,"name":"Ruby Heart Pendant","material":"18K Rose Gold · Ruby","price":1650,"badge":"Limited","desc":"A heart-shaped Burmese ruby framed in delicate 18-karat rose gold.","img1":"https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80","img2":"https://images.unsplash.com/photo-1574271143515-5cddf8da19be?w=600&q=80","meta":{"Material":"18K Rose Gold","Stone":"Burmese Ruby","Length":"40cm","Weight":"5.4g"}}
+        ]'>
+        <div class="circle-ring">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&q=80" alt="Neckpieces" />
+            <div class="circle-overlay"><span>View All</span></div>
+          </div>
+        </div>
+        <p class="circle-label">Neckpieces</p>
+      </div>
+
+      <!-- WRISTPIECES -->
+      <div class="circle-item" data-collection="wristpieces"
+        data-products='[
+          {"id":11,"name":"Diamond Tennis Bracelet","material":"18K White Gold · Diamond","price":4800,"badge":"Signature","desc":"A perfect line of round brilliant diamonds set in 18-karat white gold.","img1":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","img2":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","meta":{"Material":"18K White Gold","Stone":"2.5ct Diamonds","Length":"18cm","Weight":"8.4g"}},
+          {"id":12,"name":"Vintage Charm Bracelet","material":"18K Gold","price":920,"badge":"Bestseller","desc":"A collection of individually crafted gold charms on a curb-link chain.","img1":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","img2":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","meta":{"Material":"18K Gold","Stone":"None","Length":"19cm","Weight":"12.3g"}},
+          {"id":13,"name":"Bangle Stack Set","material":"14K Gold","price":540,"badge":"New","desc":"Three 14-karat gold bangles — textured, plain, and hammered — worn together or apart.","img1":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","img2":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","meta":{"Material":"14K Gold","Stone":"None","Diameter":"60mm","Weight":"18g (set)"}},
+          {"id":14,"name":"Sapphire Cuff Bracelet","material":"18K Gold · Sapphire","price":2650,"badge":null,"desc":"A statement cuff featuring graduated sapphires set in 18-karat gold.","img1":"https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80","img2":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","meta":{"Material":"18K Gold","Stone":"Blue Sapphires","Width":"22mm","Weight":"21.5g"}},
+          {"id":15,"name":"Gold Rope Bracelet","material":"22K Gold","price":680,"badge":null,"desc":"A classic twisted rope bracelet in 22-karat gold.","img1":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","img2":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","meta":{"Material":"22K Gold","Stone":"None","Length":"20cm","Weight":"11.7g"}}
+        ]'>
+        <div class="circle-ring">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=300&q=80" alt="Wristpieces" />
+            <div class="circle-overlay"><span>View All</span></div>
+          </div>
+        </div>
+        <p class="circle-label">Wristpieces</p>
+      </div>
+
+      <!-- RINGS -->
+      <div class="circle-item" data-collection="rings"
+        data-products='[
+          {"id":16,"name":"Solitaire Diamond Ring","material":"18K Gold · Diamond","price":3800,"badge":"Bestseller","desc":"A timeless 1-carat round brilliant solitaire diamond on an 18-karat gold band.","img1":"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80","img2":"https://images.unsplash.com/photo-1574271143515-5cddf8da19be?w=600&q=80","meta":{"Material":"18K Gold","Stone":"1ct VVS Diamond","Cut":"Round Brilliant","Weight":"3.8g"}},
+          {"id":17,"name":"Eternity Band","material":"18K White Gold · Diamond","price":2100,"badge":"New","desc":"A full eternity band with channel-set round brilliant diamonds.","img1":"https://images.unsplash.com/photo-1574271143515-5cddf8da19be?w=600&q=80","img2":"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80","meta":{"Material":"18K White Gold","Stone":"1.8ct Diamonds","Width":"3mm","Weight":"4.2g"}},
+          {"id":18,"name":"Ruby Cocktail Ring","material":"18K Gold · Ruby · Diamond","price":2800,"badge":"Signature","desc":"An oval Burmese ruby surrounded by a halo of brilliant-cut diamonds.","img1":"https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80","img2":"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80","meta":{"Material":"18K Gold","Stone":"Burmese Ruby + Diamonds","Size":"Available 5–10","Weight":"6.7g"}},
+          {"id":19,"name":"Twisted Band Ring","material":"14K Rose Gold","price":420,"badge":null,"desc":"A beautifully twisted rose gold band that catches light at every angle.","img1":"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80","img2":"https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80","meta":{"Material":"14K Rose Gold","Stone":"None","Width":"2mm","Weight":"2.8g"}},
+          {"id":20,"name":"Sapphire Vintage Ring","material":"18K Gold · Sapphire · Diamond","price":3100,"badge":"Limited","desc":"A vintage-inspired cushion-cut sapphire with milgrain-edged diamond shoulders.","img1":"https://images.unsplash.com/photo-1574271143515-5cddf8da19be?w=600&q=80","img2":"https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80","meta":{"Material":"18K Gold","Stone":"Sapphire + Diamonds","Style":"Vintage","Weight":"5.9g"}}
+        ]'>
+        <div class="circle-ring">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&q=80" alt="Rings" />
+            <div class="circle-overlay"><span>View All</span></div>
+          </div>
+        </div>
+        <p class="circle-label">Rings</p>
+      </div>
+
+      <!-- ANKLETS -->
+      <div class="circle-item" data-collection="anklets"
+        data-products='[
+          {"id":21,"name":"Figaro Chain Anklet","material":"14K Gold","price":320,"badge":"Bestseller","desc":"A classic figaro-link chain anklet in 14-karat gold.","img1":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","img2":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","meta":{"Material":"14K Gold","Stone":"None","Length":"25cm (adj)","Weight":"3.6g"}},
+          {"id":22,"name":"Charm Anklet","material":"18K Gold","price":490,"badge":"New","desc":"A dainty gold chain with five delicate hanging charms.","img1":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","img2":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","meta":{"Material":"18K Gold","Stone":"None","Length":"23–26cm","Weight":"4.1g"}},
+          {"id":23,"name":"Diamond Bezel Anklet","material":"18K White Gold · Diamond","price":1100,"badge":"Signature","desc":"Three bezel-set diamonds on a delicate white gold chain.","img1":"https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80","img2":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","meta":{"Material":"18K White Gold","Stone":"0.3ct Diamonds","Length":"24cm","Weight":"3.2g"}},
+          {"id":24,"name":"Layered Strand Anklet","material":"14K Gold","price":275,"badge":null,"desc":"Two delicate 14-karat gold chains for an effortless layered look.","img1":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","img2":"https://images.unsplash.com/photo-1608042314453-ae338d682c93?w=600&q=80","meta":{"Material":"14K Gold","Stone":"None","Length":"22–27cm","Weight":"2.8g"}},
+          {"id":25,"name":"Pearl Beaded Anklet","material":"14K Gold · Pearl","price":360,"badge":"Limited","desc":"Freshwater pearl beads with 14-karat gold spacers on a silk cord.","img1":"https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80","img2":"https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80","meta":{"Material":"14K Gold + Silk","Stone":"Freshwater Pearl","Length":"25cm","Weight":"5.3g"}}
+        ]'>
+        <div class="circle-ring">
+          <div class="circle-img-wrap">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=300&q=80" alt="Anklets" />
+            <div class="circle-overlay"><span>View All</span></div>
+          </div>
+        </div>
+        <p class="circle-label">Anklets</p>
+      </div>
+
+    </div><!-- /collection-circles -->
+
+    <!-- Products reveal area -->
+    <div class="products-reveal" id="productsReveal">
+      <div class="reveal-header">
+        <h3 class="reveal-title" id="revealTitle"></h3>
+        <button class="close-reveal" id="closeReveal">✕ Close</button>
+      </div>
+      <div class="products-grid shop-grid" id="productsGrid"></div>
+    </div>
+
+  </section>
+
+  <!-- ===== PRODUCT MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-inner">
+        <div class="modal-img-col">
+          <div class="modal-img-main">
+            <img id="modalImg" src="" alt="" />
+          </div>
+          <div class="modal-thumbs" id="modalThumbs"></div>
+        </div>
+        <div class="modal-info-col">
+          <p class="modal-category" id="modalCategory"></p>
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <div class="modal-stars">★★★★★ <span>(12 reviews)</span></div>
+          <p class="modal-price" id="modalPrice"></p>
+          <p class="modal-desc" id="modalDesc"></p>
+          <div class="modal-meta" id="modalMeta"></div>
+          <div class="modal-actions">
+            <div class="qty-wrap">
+              <button class="qty-btn" id="qtyMinus">−</button>
+              <span class="qty-val" id="qtyVal">1</span>
+              <button class="qty-btn" id="qtyPlus">+</button>
+            </div>
+            <button class="btn-primary modal-add-btn" id="modalAddCart">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CART DRAWER ===== -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-head">
+      <h3>Your Cart</h3>
+      <button id="closeCart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty.</p>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">GH₵ 0</span>
+      </div>
+      <button class="btn-primary" style="width:100%;justify-content:center;">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast">Added to cart ✦</div>
+  <script src="script.js"></script>
+</body>
+</html>
