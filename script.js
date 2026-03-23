@@ -160,26 +160,6 @@ if (circleItemsHome.length && productsRevealHome) {
   });
 }
 
-/* ── Circle scroll buttons (mobile) ── */
-const circlesPrev = document.getElementById('circlesPrev');
-const circlesNext = document.getElementById('circlesNext');
-const circlesTrack = document.getElementById('collectionCircles');
-if (circlesPrev && circlesNext && circlesTrack) {
-  const scrollAmt = 220;
-  function updateCirclesBtns() {
-    circlesPrev.disabled = circlesTrack.scrollLeft <= 0;
-    circlesNext.disabled = circlesTrack.scrollLeft + circlesTrack.clientWidth >= circlesTrack.scrollWidth - 2;
-  }
-  circlesPrev.addEventListener('click', () => {
-    circlesTrack.scrollBy({ left: -scrollAmt, behavior: 'smooth' });
-  });
-  circlesNext.addEventListener('click', () => {
-    circlesTrack.scrollBy({ left: scrollAmt, behavior: 'smooth' });
-  });
-  circlesTrack.addEventListener('scroll', updateCirclesBtns);
-  updateCirclesBtns();
-}
-
 
 /* =============================================
    PRODUCT.HTML — Collections page
