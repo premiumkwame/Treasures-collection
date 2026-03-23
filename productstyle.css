@@ -19,7 +19,7 @@
   justify-content: center;
   text-align: center;
   background:
-    linear-gradient(180deg, rgba(15,20,25,0.7) 0%, rgba(15,20,25,0.92) 100%),
+    linear-gradient(180deg, rgba(86, 98, 110, 0.7) 0%, rgba(65, 73, 82, 0.7) 100%),
     url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1400&q=80') center/cover no-repeat;
   padding: calc(var(--nav-h) + 24px) 24px 28px;
   position: relative;
@@ -340,6 +340,7 @@
     overflow: hidden;
   }
   .shop-grid .pc-mat    { display: none !important; }
+  .shop-grid .pc-tags   { display: none !important; }
   .shop-grid .pc-price  { font-size: 0.9rem !important; margin-bottom: 0 !important; }
   .shop-grid .pc-footer { margin-bottom: 0 !important; }
   .shop-grid .pc-buy {
@@ -434,6 +435,24 @@
 }
 /* Override card image height for shop page */
 .shop-main .pc-img { height: 260px; }
+
+/* ── Weight / Length tags on product cards ── */
+.pc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.pc-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(212,175,55,0.85);
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 2px;
+  padding: 2px 6px;
+}
 
 /* =============================================
    PRODUCT MODAL
