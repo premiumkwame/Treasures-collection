@@ -21,7 +21,7 @@
   background:
     linear-gradient(180deg, rgba(15,20,25,0.7) 0%, rgba(15,20,25,0.92) 100%),
     url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1400&q=80') center/cover no-repeat;
-  padding: calc(var(--nav-h) + 40px) 24px 60px;
+  padding: calc(var(--nav-h) + 24px) 24px 28px;
   position: relative;
   overflow: hidden;
 }
@@ -82,7 +82,7 @@
 .collections-top-bar {
   display: flex;
   justify-content: center;
-  padding: 20px 24px 8px;
+  padding: 12px 24px 4px;
 }
 .shop-view-all-btn {
   padding: 10px 36px;
@@ -107,7 +107,7 @@
    CIRCLE CONTAINERS on Collections page
 ============================================= */
 .shop-page .collections-section {
-  padding-bottom: 60px;
+  padding-bottom: 20px;
 }
 .shop-page .collection-circles {
   display: flex;
@@ -185,7 +185,7 @@
 /* Products reveal on collections page */
 .shop-page .products-reveal {
   display: none;
-  padding: 0 24px 40px;
+  padding: 0 12px 40px;
   animation: revealIn 0.5s ease both;
   max-width: 1400px;
   margin: 0 auto;
@@ -221,55 +221,60 @@
 }
 .shop-page .close-reveal:hover { opacity: 1; color: var(--gold); }
 
-@media (max-width: 500px) {
-  .shop-page .circle-item { width: 100px; }
-  .shop-page .circle-ring { width: 90px; height: 90px; }
-  .shop-page .circle-label { font-size: 0.72rem; }
-  .shop-page .collection-circles { gap: 16px; }
+/* =============================================
+   CIRCLES SCROLL WRAPPER — always present
+============================================= */
+.circles-scroll-wrapper {
+  display: flex;
+  align-items: center;
 }
 
+/* Arrow buttons hidden on desktop */
+.circles-scroll-btn { display: none; }
+
 /* =============================================
-   MOBILE: Horizontal scrollable circles with nav arrows
+   MOBILE: tight layout matching Temu reference
 ============================================= */
 @media (max-width: 768px) {
+
+  /* Remove all extra section spacing */
   .shop-page .collections-section {
-    padding-bottom: 40px;
+    padding-bottom: 0;
   }
 
-  /* Wrapper to hold arrows + scrollable track */
-  .circles-scroll-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding: 0 0px;
+  /* Shrink banner on mobile */
+  .shop-banner {
+    min-height: unset;
+    padding: calc(var(--nav-h) + 14px) 16px 16px !important;
   }
+  .shop-banner-title {
+    font-size: 2.2rem !important;
+    margin: 6px 0 8px !important;
+  }
+  .shop-banner-sub { font-size: 0.85rem !important; }
+  .collections-top-bar { padding: 10px 16px 2px !important; }
 
+  /* Arrow buttons */
   .circles-scroll-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
     border-radius: 50%;
     background: rgba(212,175,55,0.12);
     border: 1px solid rgba(212,175,55,0.35);
     color: var(--gold);
     font-size: 1rem;
-    flex-shrink: 0;
     cursor: pointer;
     transition: background 0.2s, color 0.2s;
-    z-index: 2;
-    margin: 0 6px;
+    margin: 0 3px;
   }
-  .circles-scroll-btn:hover {
-    background: var(--gold);
-    color: var(--navy);
-  }
-  .circles-scroll-btn:disabled {
-    opacity: 0.3;
-    cursor: default;
-  }
+  .circles-scroll-btn:hover { background: var(--gold); color: var(--navy); }
+  .circles-scroll-btn:disabled { opacity: 0.25; cursor: default; }
 
+  /* Scrollable circles track */
   .shop-page .collection-circles {
     display: flex;
     flex-wrap: nowrap;
@@ -277,39 +282,86 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    gap: 18px;
-    padding: 16px 8px;
+    gap: 12px;
+    padding: 10px 4px;
     flex: 1;
     justify-content: flex-start;
     align-items: flex-start;
   }
   .shop-page .collection-circles::-webkit-scrollbar { display: none; }
+  .shop-page .circle-item { flex: 0 0 auto; width: 78px; }
+  .shop-page .circle-ring { width: 72px; height: 72px; }
+  .shop-page .circle-label { font-size: 0.65rem; }
 
-  .shop-page .circle-item {
-    flex: 0 0 auto;
-    width: 100px;
+  /* ── Products reveal: zero horizontal padding ── */
+  .shop-page .products-reveal {
+    padding: 0 8px 24px !important;
   }
-  .shop-page .circle-ring {
-    width: 90px;
-    height: 90px;
+  .shop-page .reveal-header {
+    padding: 0 0 10px !important;
+    margin-bottom: 12px !important;
   }
-  .shop-page .circle-label { font-size: 0.72rem; }
 
-  /* 2-column product grid on mobile (like reference image 2) */
+  /* ── 2-column grid, flush to edges ── */
   .shop-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 14px !important;
+    gap: 8px !important;
   }
-  .shop-main .pc-img { height: 180px !important; }
-}
 
-/* =============================================
-   DESKTOP: Hide scroll buttons (circles use flex-wrap)
-============================================= */
-@media (min-width: 769px) {
-  .circles-scroll-btn { display: none; }
-  .circles-scroll-wrapper {
-    display: block;
+  /* ── Card itself ── */
+  .shop-grid .product-card {
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Square image — aspect ratio based so it scales with card width */
+  .shop-grid .pc-img,
+  .shop-main .pc-img {
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    width: 100%;
+  }
+
+  /* Tight body */
+  .shop-grid .pc-body {
+    padding: 6px 7px 8px !important;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  /* Name: 2 lines max */
+  .shop-grid .pc-name {
+    font-size: 0.78rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 2px !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Hide material on mobile */
+  .shop-grid .pc-mat { display: none !important; }
+
+  /* Price */
+  .shop-grid .pc-price {
+    font-size: 0.9rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  .shop-grid .pc-footer {
+    margin-bottom: 0 !important;
+  }
+
+  /* Buy Now — compact */
+  .shop-grid .pc-buy {
+    padding: 6px 4px !important;
+    font-size: 0.62rem !important;
+    letter-spacing: 0.08em !important;
+    margin-top: 5px !important;
+    border-radius: 3px !important;
   }
 }
 
