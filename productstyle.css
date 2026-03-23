@@ -228,6 +228,12 @@
   display: block;
 }
 
+@media (max-width: 768px) {
+  .circles-scroll-wrapper {
+    margin-top: 18px;
+  }
+}
+
 /* Arrow buttons — removed, always hidden */
 .circles-scroll-btn { display: none !important; }
 
@@ -278,6 +284,12 @@
     width: 58px !important;
     height: 58px !important;
     aspect-ratio: unset !important;
+    padding: 2px !important;
+  }
+  /* Thin active highlight on mobile — override thick desktop ring */
+  .shop-page .circle-item.active .circle-ring {
+    padding: 1.5px !important;
+    box-shadow: 0 0 0 1px var(--gold), 0 4px 12px rgba(212,175,55,0.3) !important;
   }
   .shop-page .circle-label {
     font-size: 0.58rem;
