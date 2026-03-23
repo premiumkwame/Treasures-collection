@@ -244,13 +244,13 @@
   .shop-banner-title { font-size: 2.2rem !important; margin: 6px 0 8px !important; }
   .shop-banner-sub   { font-size: 0.85rem !important; }
 
-  /* ── View All: closer to banner ── */
-  .collections-top-bar { padding: 10px 16px 2px !important; }
+  /* ── View All: right under banner, no gap ── */
+  .collections-top-bar { padding: 8px 16px 0 !important; }
 
   /* ── Collections section: no extra gap ── */
   .shop-page .collections-section { padding-bottom: 0; }
 
-  /* ── Circles: single horizontal swipe row, no wrap ── */
+  /* ── Circles row: no top padding, flush ── */
   .shop-page .collection-circles {
     display: flex;
     flex-wrap: nowrap;
@@ -258,33 +258,30 @@
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    gap: 0;
-    padding: 10px 12px;
+    /* evenly space 5 circles across full width */
     justify-content: space-between;
     align-items: flex-start;
+    gap: 0;
+    padding: 8px 10px 4px !important;
     width: 100%;
   }
   .shop-page .collection-circles::-webkit-scrollbar { display: none; }
 
-  /* Size each circle so all 5 fit in one row */
+  /* Fixed pixel size so circles stay perfectly round */
   .shop-page .circle-item {
-    flex: 0 0 18%;
-    width: 18%;
-    min-width: 0;
+    flex: 0 0 auto;
+    width: auto;
     align-items: center;
+    gap: 6px;
   }
   .shop-page .circle-ring {
-    width: 100%;
-    /* force square via aspect-ratio */
-    aspect-ratio: 1 / 1;
-    height: auto;
+    width: 58px !important;
+    height: 58px !important;
+    aspect-ratio: unset !important;
   }
   .shop-page .circle-label {
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
   }
 
   /* ── Products reveal: flush to screen edges ── */
