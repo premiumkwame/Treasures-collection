@@ -49,12 +49,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   z-index: 1000;
   height: var(--nav-h);
   background: var(--navy);
-  box-shadow: 0 1px 0 rgba(212, 175, 55, 0.2);
+  box-shadow: none;
 }
 /* Keep scrolled class for JS compatibility but same style */
 .navbar.scrolled {
   background: var(--navy);
-  box-shadow: 0 1px 0 rgba(212, 175, 55, 0.25);
+  box-shadow: none;
 }
 .nav-inner {
   max-width: 1400px;
