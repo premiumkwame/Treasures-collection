@@ -28,6 +28,11 @@
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
+      <div class="nav-actions">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -58,7 +63,9 @@
     </div>
 
     <!-- Category circle containers — product data stored in data-products -->
-    <div class="collection-circles">
+    <div class="circles-scroll-wrapper">
+      <button class="circles-scroll-btn" id="circlesPrev" aria-label="Previous">&#8249;</button>
+      <div class="collection-circles" id="collectionCircles">
 
       <!-- EARPIECES -->
       <div class="circle-item" data-collection="earpieces"
@@ -151,6 +158,8 @@
       </div>
 
     </div><!-- /collection-circles -->
+      <button class="circles-scroll-btn" id="circlesNext" aria-label="Next">&#8250;</button>
+    </div><!-- /circles-scroll-wrapper -->
 
     <!-- Products reveal area -->
     <div class="products-reveal" id="productsReveal">
