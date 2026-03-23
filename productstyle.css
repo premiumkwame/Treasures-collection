@@ -354,13 +354,14 @@
 /* =============================================
    FILTER BAR — hidden; circles replace it
 ============================================= */
-.filter-bar { display: none; } 
+.filter-bar {
+  display: none;
   background: var(--navy);
-  border-bottom: 1px solid rgba(212,175,55,0.15);
+  border-bottom: none;
   position: sticky;
   top: var(--nav-h);
   z-index: 99;
-  
+}
 .filter-bar-inner {
   max-width: 1400px;
   margin: 0 auto;

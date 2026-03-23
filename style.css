@@ -140,6 +140,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* Mobile nav */
 @media (max-width: 900px) {
+  .navbar,
+  .navbar.scrolled {
+    box-shadow: none !important;
+    border-bottom: none !important;
+    outline: none !important;
+  }
   .nav-links {
     position: fixed;
     top: var(--nav-h); left: 0; right: 0;
