@@ -57,11 +57,11 @@ const fmt = (n) => `GH₵ ${Number(n).toLocaleString()}`;
    e.g.  src: 'images/my-earring.jpg'
 ============================================= */
 const PRODUCTS = [
-  { id:1,  category:'earpieces',   name:'Celestial Drop Earrings',    material:'18K Gold · Pearl',              price:380,  badge:'Bestseller', src:'images/earrings-celestial.jpg',  weight:'4.2g' },
-  { id:2,  category:'earpieces',   name:'Aurora Hoop Earrings',       material:'14K Gold · Diamond',            price:620,  badge:'New',        src:'images/earrings-aurora.jpg',      weight:'3.8g' },
-  { id:3,  category:'earpieces',   name:'Lotus Stud Earrings',        material:'22K Gold',                      price:245,  badge:null,         src:'images/earrings-lotus.jpg',       weight:'2.6g' },
-  { id:4,  category:'earpieces',   name:'Sapphire Teardrop Studs',    material:'18K White Gold · Sapphire',     price:890,  badge:null,         src:'images/earrings-sapphire.jpg',    weight:'3.1g' },
-  { id:5,  category:'earpieces',   name:'Tassel Chandelier Earrings', material:'18K Gold',                      price:460,  badge:'Limited',    src:'images/earrings-tassel.jpg',      weight:'6.5g' },
+  { id:1,  category:'earpieces',   name:'EarCuff Earrings',           material:'18K Gold · Diamond',            price:380,  badge:'Bestseller', src:'images/earcuffearring.jpg',       weight:'4.2g' },
+  { id:2,  category:'earpieces',   name:'Lobe Earrings',              material:'14K Gold · Diamond',            price:620,  badge:'New',        src:'images/lobeearrings.jpg',         weight:'3.8g' },
+  { id:3,  category:'earpieces',   name:'Targus Earrings',            material:'22K Gold · Diamond',            price:245,  badge:null,         src:'images/targus.jpg',               weight:'2.6g' },
+  { id:4,  category:'earpieces',   name:'Industrial Earrings',        material:'18K Silver · Gold',             price:890,  badge:null,         src:'images/industrial.jpg',           weight:'3.1g' },
+  { id:5,  category:'earpieces',   name:'Daith Earrings',             material:'18K Gold · Diamond',            price:460,  badge:'Limited',    src:'images/daith.jpg',                weight:'6.5g' },
   { id:6,  category:'neckpieces',  name:'Golden Heirloom Necklace',   material:'18K Gold · VVS Diamond',        price:2200, badge:'Signature',  src:'images/necklace-heirloom.jpg',   length:'45cm', weight:'14.8g' },
   { id:7,  category:'neckpieces',  name:'Pearl Strand Necklace',      material:'18K Gold · South Sea Pearl',    price:1350, badge:'Bestseller', src:'images/necklace-pearl.jpg',      length:'50cm', weight:'32g' },
   { id:8,  category:'neckpieces',  name:'Emerald Pendant Necklace',   material:'18K Gold · Colombian Emerald',  price:3400, badge:'New',        src:'images/necklace-emerald.jpg',    length:'42cm', weight:'6.2g' },

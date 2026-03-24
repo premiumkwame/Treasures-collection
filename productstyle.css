@@ -20,7 +20,7 @@
   text-align: center;
   background:
     linear-gradient(180deg, rgba(86, 98, 110, 0.7) 0%, rgba(65, 73, 82, 0.7) 100%),
-    url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1400&q=80') center/cover no-repeat;
+    url('images/collectionsbanner.png') center/cover no-repeat;
   padding: calc(var(--nav-h) + 24px) 24px 28px;
   position: relative;
   overflow: hidden;
