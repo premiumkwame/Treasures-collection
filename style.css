@@ -1,11 +1,6 @@
-/* =============================================
-   TREASURES COLLECTION — style.css
-   Luxury Jewellery Brand
-============================================= */
-
 /* ── CSS Variables ── */
 :root {
-  --navy:       #0F1419;
+  --navy:       #190f17;
   --champagne:  #F4E4C1;
   --gold:       #D4AF37;
   --gold-light: #e8c84a;
@@ -182,7 +177,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   object-fit: cover;
   object-position: center;
   transform: scale(1.04);
-  animation: heroZoom 12s ease-in-out infinite alternate;
+  animation: heroZoom 15s ease-in-out infinite alternate;
 }
 @keyframes heroZoom {
   from { transform: scale(1.04); }
@@ -193,9 +188,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(15,20,25,0.82) 0%,
-    rgba(15,20,25,0.55) 50%,
-    rgba(15,20,25,0.72) 100%
+    rgba(38, 52, 66, 0.8) 0%,
+    rgba(42, 54, 65, 0.52) 30%,
+    rgba(38,52,66,0.70) 100%
   );
 }
 .hero-content {

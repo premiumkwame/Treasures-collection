@@ -100,7 +100,19 @@ const COLLECTION_PRODUCTS = {
 ============================================= */
 function buildProductCard(p, index = 0) {
   const imgSrc = p.src || p.img1 || '';
-  const waText = encodeURIComponent(`Hello, I want to buy the ${p.name}`);
+  
+  // 1. Build a detailed descriptive text
+  // We use %0A for line breaks to make it look organized in WhatsApp
+  const message = `Hello! I'm interested in buying this item:
+  
+*Product:* ${p.name}
+*Price:* ${fmt(p.price)}
+*Material:* ${p.material || 'N/A'}
+${p.length ? `*Length:* ${p.length}%0A` : ''}${p.weight ? `*Weight:* ${p.weight}%0A` : ''}
+*Product Image:* ${window.location.origin}/${imgSrc}`;
+
+  // 2. Encode the text for the URL
+  const waText = encodeURIComponent(message);
   const waLink = `https://wa.me/233203213512?text=${waText}`;
 
   const tags = [];
