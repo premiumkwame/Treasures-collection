@@ -101,20 +101,26 @@ const COLLECTION_PRODUCTS = {
 function buildProductCard(p, index = 0) {
   const imgSrc = p.src || p.img1 || '';
   
-  // 1. Build a detailed descriptive text
-  // We use %0A for line breaks to make it look organized in WhatsApp
+  // This helps construct the full URL for GitHub Pages automatically
+  const fullImageUrl = `${window.location.origin}${window.location.pathname}${imgSrc}`.replace('//', '/');
+
+  // Use actual new lines inside the backticks. 
+  // WhatsApp will recognize these as line breaks once encoded.
   const message = `Hello! I'm interested in buying this item:
-  
+
 *Product:* ${p.name}
 *Price:* ${fmt(p.price)}
 *Material:* ${p.material || 'N/A'}
-${p.length ? `*Length:* ${p.length}%0A` : ''}${p.weight ? `*Weight:* ${p.weight}%0A` : ''}
-*Product Image:* ${window.location.origin}/${imgSrc}`;
+${p.length ? `*Length:* ${p.length}` : ''}
+${p.weight ? `*Weight:* ${p.weight}` : ''}
 
-  // 2. Encode the text for the URL
+*View Image:* ${fullImageUrl}`;
+
+  // Encode the entire message at once
   const waText = encodeURIComponent(message);
   const waLink = `https://wa.me/233203213512?text=${waText}`;
 
+  // ... (rest of your existing tags and return statement)
   const tags = [];
   if (p.length) tags.push(`<span class="pc-tag">${p.length}</span>`);
   if (p.weight) tags.push(`<span class="pc-tag">${p.weight}</span>`);
