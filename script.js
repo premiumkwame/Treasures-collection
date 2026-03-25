@@ -102,7 +102,8 @@ function buildProductCard(p, index = 0) {
   const imgSrc = p.src || p.img1 || '';
   
   // This helps construct the full URL for GitHub Pages automatically
-  const fullImageUrl = `${window.location.origin}${window.location.pathname}${imgSrc}`.replace('//', '/');
+  const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+  const fullImageUrl = new URL(imgSrc, baseUrl).href;
 
   // Use actual new lines inside the backticks. 
   // WhatsApp will recognize these as line breaks once encoded.
